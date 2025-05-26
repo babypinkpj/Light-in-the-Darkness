@@ -103,9 +103,14 @@ public class BannerAdExample : MonoBehaviour
 
     void OnBannerClicked()
     {
+      
         HideBannerAd();
-        player.GetComponent<PickupScript>().IncreaseCoin(10);
-    }
+       PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+    if (playerHealth != null)
+{
+            Debug.Log("Increase HP");
+    playerHealth.Heal(10);  // เพิ่มเลือด 10 หน่วยเมื่อกดแบนเนอร์
+}
     void OnBannerShown() { }
     void OnBannerHidden() { }
  
