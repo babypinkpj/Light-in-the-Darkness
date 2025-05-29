@@ -21,7 +21,7 @@ public class HealPickup : MonoBehaviour
             // เล่นเสียง
             if (healSound != null && audioSource != null)
             {
-                audioSource.PlayOneShot(healSound);
+                audioSource.Play();
             }
 
             // หาผู้เล่นแล้วเพิ่มเลือด

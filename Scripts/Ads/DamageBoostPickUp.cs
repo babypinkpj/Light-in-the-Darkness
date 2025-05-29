@@ -23,16 +23,16 @@ public class DamageBoostPickUp : MonoBehaviour
             // เล่นเสียง
             if (boostSound != null && audioSource != null)
             {
-                audioSource.PlayOneShot(boostSound);
+                audioSource.Play();
             }
 
             // เพิ่มพลังโจมตี
             PlayerController playerController = other.GetComponent<PlayerController>();
             if (playerController != null)
             {
-                playerController.attackDamage += damageBoost;
+                PlayerStats.attackDamage += damageBoost;
                 playerController.speed += speedBoost;
-                Debug.Log("Attack Damage increased to: " + playerController.attackDamage);
+                Debug.Log("Attack Damage increased to: " + PlayerStats.attackDamage);
             }
 
             // ทำลายตัวเอง

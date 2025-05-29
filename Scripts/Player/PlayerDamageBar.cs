@@ -13,23 +13,23 @@ public class PlayerDamageBar : MonoBehaviour
         if (damageSlider != null && playerController != null)
         {
             damageSlider.onValueChanged.AddListener(UpdateDamage);
-            damageSlider.value = playerController.attackDamage; // เริ่มต้นเท่าค่าใน player
+            damageSlider.value = PlayerStats.attackDamage; // เริ่มต้นเท่าค่าใน player
         }
     }
 
     void UpdateDamage(float newValue)
     {
-        playerController.attackDamage = Mathf.RoundToInt(newValue);
-        Debug.Log("New Player Damage: " + playerController.attackDamage);
+        PlayerStats.attackDamage = Mathf.RoundToInt(newValue);
+        Debug.Log("New Player Damage: " + PlayerStats.attackDamage);
     }
     
     void Update()
 {
     if (damageSlider != null && playerController != null)
     {
-        if (damageSlider.value != playerController.attackDamage)
+        if (damageSlider.value != PlayerStats.attackDamage)
         {
-            damageSlider.value = playerController.attackDamage;
+            damageSlider.value = PlayerStats.attackDamage;
         }
     }
 }

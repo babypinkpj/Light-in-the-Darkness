@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -103,14 +103,10 @@ public class BannerAdExample : MonoBehaviour
 
     void OnBannerClicked()
     {
-      
         HideBannerAd();
-       PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-    if (playerHealth != null)
-{
-            Debug.Log("Increase HP");
-    playerHealth.Heal(10);  // เพิ่มเลือด 10 หน่วยเมื่อกดแบนเนอร์
-}
+        ScoreManager.AddScore(10);
+   
+    }
     void OnBannerShown() { }
     void OnBannerHidden() { }
  

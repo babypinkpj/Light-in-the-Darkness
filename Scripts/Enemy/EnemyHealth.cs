@@ -48,6 +48,8 @@ public class EnemyHealth : MonoBehaviour
         {
             Destroy(healthBarCanvas); // ลบทิ้งจาก scene
         }
+       
+        ScoreManager.AddScore(10);
 
         Destroy(gameObject); // ลบศัตรูจาก scene ด้วย
     }

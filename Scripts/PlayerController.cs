@@ -6,7 +6,6 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
-    private PlayerControls playerControls;
     
     public float speed = 3f;
     public float jumpForce = 5f;
@@ -19,11 +18,9 @@ public class PlayerController : MonoBehaviour
     bool jump = false;
     bool gameStarted = false;
     bool grounded = false;
-    private GameObject attackArea = default;
-    private float timer = 0f;
     public Light2D playerLight;
     public float attackRange = 0.5f;
-    public int attackDamage = 5;
+    //public int attackDamage = 5;
     public Transform attackPoint;       // จุดโจมตีหน้าผู้เล่น
     private bool attacking = false;
     private bool isJumping = false;
@@ -99,6 +96,7 @@ animator.SetBool("Grounded", grounded); // ส่งค่ากลับไป 
             if (enemy != null)
             {
                 animator.SetTrigger("Attack");
+                audioSource.Play();
                 Attack(enemy.gameObject);
             }
 
@@ -147,7 +145,7 @@ animator.SetBool("Grounded", grounded); // ส่งค่ากลับไป 
        
         if (enemyHealth != null)
         {
-            enemyHealth.TakeDamage(attackDamage);
+             enemyHealth.TakeDamage(PlayerStats.attackDamage);
         }
 
         //cooldown ง่ายๆ ให้โจมตีได้อีกครั้งหลัง 0.5 วิ
